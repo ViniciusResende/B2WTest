@@ -41,6 +41,9 @@ export const StarContainer = styled.div`
 `;
 
 export const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
   margin-bottom: 0.5rem;
 `;
 

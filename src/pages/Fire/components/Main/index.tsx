@@ -2,54 +2,60 @@ import React, { useEffect, useState } from 'react';
 
 import { Container } from './styles';
 
+import InfiniteScroll from '../InfiniteScroll';
 import PokeCard from '../PokeCard';
 
 import { api } from '../../../../api/api';
 
-export interface Pokemon {
-  id: number;
-  name: string;
-  picture: string;
+interface PokemonData {
+  pokemon: {
+    name: string;
+    url: string;
+  }
 }
 
 const Main: React.FC = () => {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemon, setPokemon] = useState<string[]>([]);
+  const [visiblePokemon, setVisiblePokemon] = useState<string[]>([]);
+
+  async function retrievePokemon() {
+    // TODO: get /type/fire URI by parameter
+    const { data } = await api.get('/type/fire');
+    setPokemon(data.pokemon.map((pokemonData: PokemonData) => pokemonData.pokemon.name));
+  };
+
+  const loadMorePokemon = () => {
+    const index = visiblePokemon.length;
+    const amount = 2; //turn it in a variable to fit better by the resolution
+    setVisiblePokemon(
+      visiblePokemon.concat(
+        pokemon.slice(index, index + amount)
+      )
+    );
+  };
   
-  useEffect(() => {
-    async function loadPokemons() { //Tipar essa parte
-      const { data } = await api.get('/type/fire');
-      const FirePokemonsArray = data.pokemon;
-      let pokemons = [];
-      for(let i = 0; i < 10; i++){
-        const pokemonName = FirePokemonsArray[i].pokemon.name;
-        const { data } = await api.get(`/pokemon/${pokemonName}`);
-        const actualPokemon = {
-          id: data.id,
-          name: data.name,
-          picture: data.sprites.front_default,
-        }
-        pokemons.push(actualPokemon);
-      }
-      // FirePokemonsArray.forEach(async (pokemon) => {
-      //   const pokemonName = pokemon.pokemon.name;
-      //   const { data } = await api.get(`/pokemon/${pokemonName}`);
-      //   const actualPokemon = {
-      //     id: data.id,
-      //     name: data.name,
-      //     picture: data.sprites.front_default,
-      //   }
-      //   pokemons.push(actualPokemon);
-      // });
-      setPokemons(pokemons);
-    }
-    loadPokemons();    
+  const loadMoreHandler = () => {
+    loadMorePokemon();
+  }
+  
+  useEffect(() => {    
+    retrievePokemon();    
   }, []);
+
+  useEffect(() => {
+    if (pokemon.length > 0) {
+      loadMorePokemon();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemon]);
   return (
-    <Container>
-      {pokemons && pokemons.map((pokemon) => {
-        return <PokeCard key={pokemon.id} id={pokemon.id} name={pokemon.name} picture={pokemon.picture}/>
-      })}
-    </Container>
+    <InfiniteScroll classReference="poke-card" amountLoaded={visiblePokemon.length} loadMoreHandler={loadMoreHandler}>
+      <Container>
+        {visiblePokemon && visiblePokemon.map((pokemonName) => {
+          return <PokeCard key={pokemonName} name={pokemonName}/>
+        })}
+      </Container>
+    </InfiniteScroll>
   );
 }
 
