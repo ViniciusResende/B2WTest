@@ -52,8 +52,6 @@ const Main: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemon]);
-
-  console.log('pokemons on cart', pokemonsIds)
   return (
     <InfiniteScroll classReference="poke-card" amountLoaded={visiblePokemon.length} loadMoreHandler={loadMoreHandler}>
       <Container>

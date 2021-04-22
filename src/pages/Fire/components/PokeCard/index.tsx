@@ -49,14 +49,17 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
 
   const loadPokemon = useCallback(async () =>{
     const { data } = await api.get(`/pokemon/${props.name}`);
-    const starsNumber = Math.round(Math.random() * 5);
+    // const starsNumber = Math.round(Math.random() * 5);
+    const starsNumber = 4;
     generateStars(starsNumber);
     setPokemon({
       id: data.id,
       name: data.name,
       picture: data.sprites.front_default,
-      lvl: Math.floor(Math.random() * 101),
-      price: Math.floor(Math.random() * 1001),
+      // lvl: Math.floor(Math.random() * 101),
+      // price: Math.floor(Math.random() * 1001),
+      lvl: 30,
+      price: 100,
       stars: starsNumber
     })
   },[props.name]);
