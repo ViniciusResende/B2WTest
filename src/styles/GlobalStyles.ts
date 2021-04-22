@@ -30,7 +30,8 @@ export default createGlobalStyle`
   :root {
     --black: #000;
     --dark-gray: #15181C;
-    --ligh-gray: #7A7A7A;
+    --ligh-gray: #dedede;
+    --medium-light-gray: #b8b8b8;
     --medium-gray: #202327;
     --white: #fff;
     --outline: #2F3336;

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useCart } from '../../../../context/CartContext';
 
 import { 
   Container,
   TopHeader, 
   BarsIcon,
   Logo,
+  MarketButton,
   ProfileIcon,
   MarketIcon,
   FavoriteIcon,
@@ -16,6 +18,7 @@ import {
   } from './styles';
 
 const Header: React.FC = () => {
+  const { changeCartHandler } = useCart();
   return (
     <Container>
       <TopHeader>
@@ -26,7 +29,9 @@ const Header: React.FC = () => {
         <ProfileIcon />
         <MarketIcon />
         <FavoriteIcon />
-        <ShopBasket />
+        <MarketButton>
+          <ShopBasket onClick={() => changeCartHandler()}/>
+        </MarketButton>
       </TopHeader>
       <BottomHeader>
         <SearchBox>

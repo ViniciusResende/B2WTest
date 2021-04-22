@@ -6,6 +6,8 @@ import InfiniteScroll from '../InfiniteScroll';
 import PokeCard from '../PokeCard';
 
 import { api } from '../../../../api/api';
+import Cart from '../Cart';
+import { useCart } from '../../../../context/CartContext';
 
 interface PokemonData {
   pokemon: {
@@ -15,6 +17,8 @@ interface PokemonData {
 }
 
 const Main: React.FC = () => {
+  const { pokemonsIds } = useCart();
+
   const [pokemon, setPokemon] = useState<string[]>([]);
   const [visiblePokemon, setVisiblePokemon] = useState<string[]>([]);
 
@@ -48,6 +52,8 @@ const Main: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemon]);
+
+  console.log('pokemons on cart', pokemonsIds)
   return (
     <InfiniteScroll classReference="poke-card" amountLoaded={visiblePokemon.length} loadMoreHandler={loadMoreHandler}>
       <Container>
@@ -56,6 +62,7 @@ const Main: React.FC = () => {
         })}
       </Container>
     </InfiniteScroll>
+    // <Cart />
   );
 }
 

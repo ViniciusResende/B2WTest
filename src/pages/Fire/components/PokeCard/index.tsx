@@ -13,6 +13,7 @@ import {
 
 import { api } from '../../../../api/api';
 import defaultPokemon from '../../../../assets/emptyPokemon.png';
+import { useCart } from '../../../../context/CartContext';
 
 export interface Pokemon {
   id: number;
@@ -28,6 +29,8 @@ type PokeCardProps = {
 }
 
 const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
+  const { addPokemon } = useCart();
+
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [stars, setStars] = useState<string[]>([]);
 
@@ -64,7 +67,7 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
   }, [loadPokemon]);
 
   function handleAddPokemon(id: number) {
-    // addPokemon();
+    addPokemon(id);
   }
 
   return (

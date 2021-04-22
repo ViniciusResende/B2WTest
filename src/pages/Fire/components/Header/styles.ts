@@ -21,6 +21,8 @@ export const TopHeader  = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  padding-right: 3rem;
   
   > svg {
     transition: all 0.4s ease;
@@ -31,6 +33,18 @@ export const TopHeader  = styled.div`
 `;
 export const Logo = styled.div`
   font-weight: bold;
+`;
+
+export const MarketButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--fire);
+  top: 5px;
+  right: 15px;
 `;
 
 export const BottomHeader = styled.div`
