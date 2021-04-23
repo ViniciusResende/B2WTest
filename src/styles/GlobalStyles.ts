@@ -25,6 +25,7 @@ export default createGlobalStyle`
 
   html {
     background: var(--primary);
+    scroll-behavior: smooth;
   }
 
   :root {

@@ -8,4 +8,8 @@ export const Container = styled.div`
   z-index: 100;
   top: 0;
   right: 0;
+
+  @media (min-width: 1366px){
+    display: none;
+  }
 `;

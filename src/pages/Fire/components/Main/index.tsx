@@ -50,10 +50,13 @@ const Main: React.FC = () => {
     if (pokemon.length > 0) {
       loadMorePokemon();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemon]);
   return (
-    <InfiniteScroll classReference="poke-card" amountLoaded={visiblePokemon.length} loadMoreHandler={loadMoreHandler}>
+    <InfiniteScroll 
+      classReference="poke-card" 
+      amountLoaded={visiblePokemon.length} 
+      loadMoreHandler={loadMoreHandler}
+    >
       <Container>
         {visiblePokemon && visiblePokemon.map((pokemonName) => {
           return <PokeCard key={pokemonName} name={pokemonName}/>

@@ -94,7 +94,12 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   }
 
   const changeCartHandler = () => {
-    setCartIsInDisplay(prev => !prev);
+    if(window.innerWidth < 1366){
+      setCartIsInDisplay(prev => !prev);
+    } else {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
   }
 
   const finalizeModalIsInDisplayHandler = () => {

@@ -14,11 +14,13 @@ import {
 import PokemonBox from '../PokemonBox';
 import { useCart } from '../../../../context/CartContext';
 
-
-const Cart: React.FC = () => {
+interface CartProps {
+  cartClass?: string;
+}
+const Cart: React.FC<CartProps> = (props) => {
   const { changeCartHandler, pokemonsIds, totalPrice, finalizeModalIsInDisplayHandler } = useCart();
   return (
-    <Container>
+    <Container className={props?.cartClass}>
       <Header>
         <h2>Minha cesta</h2>
         <CloseIcon onClick={() => changeCartHandler()}/>

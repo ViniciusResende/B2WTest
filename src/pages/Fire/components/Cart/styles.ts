@@ -9,7 +9,12 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 0.35rem;
   margin: 0 auto;
+  width: 100%;
   max-width: 500px;
+
+  @media (min-width: 1366px){
+    border-left: 1px solid var(--medium-light-gray);
+  }
 `;
 
 export const Header = styled.header`
@@ -19,6 +24,12 @@ export const Header = styled.header`
 
   > h2 {
     color: var(--dark-gray);
+  }
+
+  @media (min-width: 768px) {
+    > h2 {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -38,6 +49,11 @@ export const PriceContainer = styled.div`
 export const ConfirmationArea = styled.div`
   padding: 0.5rem;
   background: var(--light-gray);
+  
+  /* @media (min-width: 1366px){
+    position: sticky;
+  } */
+  //TODO: Try to make the confirmation area sticky
 `;
 export const ConfirmationContent = styled.div`
   border-top: 1px solid var(--medium-light-gray);
@@ -65,6 +81,26 @@ export const ConfirmationContent = styled.div`
     text-align: center;
     margin-bottom: 0.25rem;
   }
+
+  @media (min-width: 768px) {
+    > h3 {
+      font-size: 1.75rem;
+    }
+
+    > div {
+      > strong {
+        font-size: 1.5rem;
+      }
+
+      > span {
+        font-size: .75rem;
+      }
+    }
+
+    > a {
+      font-size: .75rem;
+    }
+  }
 `;
 export const ConfirmButton = styled.button`
   display: flex;
@@ -86,12 +122,20 @@ export const ConfirmButton = styled.button`
   &:disabled{
     opacity: 0.8;
   }
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const BasketIcon = styled(ShoppingBasket)`
   width: 15px;
   fill: var(--white);
   margin-right: 1rem;
+
+  @media (min-width: 768px) {
+    width: 20px;
+  }
 `;
 export const CloseIcon = styled(Close)`
   width: 20px;

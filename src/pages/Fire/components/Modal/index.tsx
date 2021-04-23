@@ -27,8 +27,13 @@ const Modal: React.FC<ModalProps> = (props) => {
           <strong>{props.body}</strong>
         </Body>
         <Buttons>
-          {/* @ts-ignore */}
-          {props.closeFunction && <button onClick={() => props.closeFunction()}>Cancelar</button>}
+          {props.closeFunction && 
+            <button 
+              onClick={() => props.closeFunction && props.closeFunction()}
+            >
+              Cancelar
+            </button>
+          }
           <button onClick={() => props.confirmFunction()}>Confirmar</button>
         </Buttons>
       </ModalContent>

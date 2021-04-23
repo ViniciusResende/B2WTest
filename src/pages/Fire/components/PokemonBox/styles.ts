@@ -22,12 +22,19 @@ export const TopInformation = styled.div`
     width: 100px;
     margin-right: 1rem;
   }
+
+  @media (min-width: 768px) {
+    > img {
+      width: 150px;
+    }
+  }
 `;
 export const SideInformation = styled.div`
   display: flex;
   flex-direction: column;
   > h4 {
     color: var(--dark-gray);
+    text-transform: capitalize;
   }
   > span {
     color: var(--medium-light-gray);
@@ -35,6 +42,16 @@ export const SideInformation = styled.div`
 
     > strong {
       color: var(--outline);
+    }
+  }
+
+  @media (min-width: 768px) {
+    > h4 {
+      font-size: 1.5rem;
+    }
+
+    > span {
+      font-size: 0.65rem;
     }
   }
 `;
@@ -73,6 +90,9 @@ export const Switcher = styled.div`
     font-size: 0.75rem;
     line-height: 0.75rem;
     color: var(--outline); 
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 export const StarContainer = styled.div``;
@@ -87,16 +107,33 @@ export const PriceContainer = styled.div`
   > strong {
     color: var(--dark-gray);
   }
+
+  @media (min-width: 768px) {
+    > span {
+      font-size: 0.75rem;
+    }
+
+    > strong {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 export const StarIcon = styled(StarFill)`
   width: 10px;
+  @media (min-width: 768px) {
+    width: 15px;
+  }
 `;
 
 const IconsCss = css`
   width: 10px;
   fill: var(--outline);
   background: rgba(0, 0, 0, 0);
+
+  @media (min-width: 768px) {
+    width: 20px;
+  }
 `
 
 export const MinusIcon = styled(Minus)`${IconsCss}`;

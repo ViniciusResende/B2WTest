@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useCart } from '../../../../context/CartContext';
 
 import { 
@@ -11,6 +11,8 @@ import {
   MarketIcon,
   FavoriteIcon,
   ShopBasket,
+  MiddleBottomContainer,
+  MiddleHeader,
   BottomHeader,
   SearchBox,
   SearchButton, 
@@ -19,6 +21,24 @@ import {
 
 const Header: React.FC = () => {
   const { changeCartHandler, getNumberOfItems } = useCart();
+  const [cartClass, setCartClass] = useState('');
+
+  const onScroll = useCallback(() => {
+    if(window.scrollY > 95){
+      setCartClass('outOfTop');
+    } else if(window.scrollY <= 95) {
+      setCartClass('');
+    }
+  }, [window.scrollY])
+  
+  useEffect(() => {
+    document.addEventListener('scroll', onScroll);
+  
+    return function cleanup() {
+      document.removeEventListener('scroll', onScroll);
+    }
+  }, [onScroll]);
+
   return (
     <Container>
       <TopHeader>
@@ -29,7 +49,7 @@ const Header: React.FC = () => {
         <ProfileIcon />
         <MarketIcon />
         <FavoriteIcon />
-        <MarketButton>
+        <MarketButton className={cartClass}>
           {getNumberOfItems() !== 0 && (
             <div>
               {getNumberOfItems() < 10 ? getNumberOfItems() : <span>9+</span>}
@@ -38,14 +58,22 @@ const Header: React.FC = () => {
           <ShopBasket onClick={() => changeCartHandler()}/>
         </MarketButton>
       </TopHeader>
-      <BottomHeader>
-        <SearchBox>
-          <input type="text" placeholder="Busque aqui seu Poke"/>
-          <SearchButton>
-            <SearchIcon />
-          </SearchButton>
-        </SearchBox>
-      </BottomHeader>
+      <MiddleBottomContainer>
+        <MiddleHeader>
+          <span>Empresa</span>
+          <span>Capture</span>
+          <span>Batalhas</span>
+          <span>Ginásios</span>
+        </MiddleHeader>
+        <BottomHeader>
+          <SearchBox>
+            <input type="text" placeholder="Busque aqui seu Poke"/>
+            <SearchButton>
+              <SearchIcon />
+            </SearchButton>
+          </SearchBox>
+        </BottomHeader>
+      </MiddleBottomContainer>      
     </Container>
   );
 }

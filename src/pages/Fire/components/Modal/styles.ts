@@ -25,17 +25,41 @@ export const ModalContent = styled.div`
   height: 20rem;
   background: var(--white);
   z-index: 202;
+
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1366px) {
+    width: 40%;
+  }
 `;
 
 export const Head = styled.div`
   > h2 {
     color: var(--dark-gray);
   }
+
+  @media (min-width: 1024px) {
+    > h2 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export const Body = styled.div`
   > strong {
     color: var(--outline);
+  }
+
+  @media (min-width: 1024px) {
+    > strong {
+      font-size: 1.25rem;
+    }
   }
 `;
 
@@ -60,6 +84,9 @@ export const Buttons = styled.div`
 
     &:hover {
       filter: brightness(0.8);
+    }
+    @media (min-width: 1024px) {
+      font-size: 1.25rem;
     }
   }
 `;

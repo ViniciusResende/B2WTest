@@ -34,7 +34,7 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [stars, setStars] = useState<string[]>([]);
 
-  const generateStars = useCallback((numberOfStars: number) => {//see the more than 1 star generation
+  const generateStars = useCallback((numberOfStars: number) => {
     for(let i = 0; i < 5; i++){
       let newArray = stars;
       if(i < numberOfStars){
@@ -106,9 +106,8 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
           </PriceContainer>
         </Body>
         <Footer>
-          <button
-            //@ts-ignore
-            onClick={() => handleAddPokemon(pokemon.id || 0)}
+          <button            
+            onClick={() => handleAddPokemon(pokemon?.id || 0)}
           >
             Adicionar ao Carrinho
           </button>

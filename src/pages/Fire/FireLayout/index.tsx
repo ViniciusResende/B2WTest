@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Container } from './styles';
+import { Container, CenteredContent } from './styles';
 
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -12,6 +12,7 @@ import BackdropDrawer from '../components/BackdropDrawer';
 import Routes from './routes';
 
 import { CartProvider } from '../../../context/CartContext';
+import Cart from '../components/Cart';
 const FireLayout: React.FC = () => {
   return (
     <BrowserRouter>
@@ -22,7 +23,10 @@ const FireLayout: React.FC = () => {
           <AcknowledgmentModal />
           <SlideDrawer />
           <BackdropDrawer />
-          <Main />
+          <CenteredContent>
+            <Main />
+            <Cart cartClass='cart'/>
+          </CenteredContent>
           {/* <Routes /> */}
         </Container>
       </CartProvider>
