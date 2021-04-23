@@ -5,8 +5,10 @@ import { Container } from './styles';
 
 import Header from '../components/Header';
 import Main from '../components/Main';
+import FinalizateModal from '../components/FinalizateModal';
+import AcknowledgmentModal from '../components/AcknowledgmentModal';
 import SlideDrawer from '../components/SlideDrawer';
-import Backdrop from '../components/Backdrop';
+import BackdropDrawer from '../components/BackdropDrawer';
 import Routes from './routes';
 
 import { CartProvider } from '../../../context/CartContext';
@@ -16,8 +18,10 @@ const FireLayout: React.FC = () => {
       <CartProvider>
         <Container>
           <Header />
+          <FinalizateModal />
+          <AcknowledgmentModal />
           <SlideDrawer />
-          <Backdrop />
+          <BackdropDrawer />
           <Main />
           {/* <Routes /> */}
         </Container>

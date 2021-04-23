@@ -35,7 +35,7 @@ export const Logo = styled.div`
   font-weight: bold;
 `;
 
-export const MarketButton = styled.div`
+export const MarketButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,6 +45,31 @@ export const MarketButton = styled.div`
   background: var(--fire);
   top: 5px;
   right: 15px;
+
+  cursor: pointer;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+    background: var(--star);
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    color: var(--black);
+
+    > span {
+      color: var(--black);
+    }
+
+    position: absolute;
+    top: -4px;
+    left: -8px;
+  }
 `;
 
 export const BottomHeader = styled.div`

@@ -16,7 +16,7 @@ import { useCart } from '../../../../context/CartContext';
 
 
 const Cart: React.FC = () => {
-  const { changeCartHandler, pokemonsIds, totalPrice } = useCart();
+  const { changeCartHandler, pokemonsIds, totalPrice, finalizeModalIsInDisplayHandler } = useCart();
   return (
     <Container>
       <Header>
@@ -33,7 +33,7 @@ const Cart: React.FC = () => {
             <strong> R$ {totalPrice},00 </strong>
             <span>ou 10x de R${totalPrice/10},00</span>
           </PriceContainer>
-          <ConfirmButton disabled={totalPrice === 0}>
+          <ConfirmButton disabled={totalPrice === 0} onClick={() => finalizeModalIsInDisplayHandler()}>
             <BasketIcon />
             <strong>Confirmar Pedido</strong>
           </ConfirmButton>

@@ -22,20 +22,12 @@ interface PokemonBoxProps {
   pokemonId: number;
 }
 const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) => {
-  const { getAmount, addPokemon, changeTotalPriceHandler } = useCart();
+  const { getAmount, growPokemonAmount , decreasePokemonAmount, changePokemonTotalPrice } = useCart();
 
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [stars, setStars] = useState<string[]>([]);
   const [pokeAmount, setPokeAmount] = useState(getAmount(pokemonId));
-  
-  useEffect(()=>{
-    setPokeAmount(getAmount(pokemonId));    
-  },  [getAmount])
-
-  useEffect(() => {
-    pokemon && 
-      changeTotalPriceHandler(pokemon.price);
-  }, [pokeAmount, pokemon])
+  const [amountCache, setAmountCache] = useState(0);
   const generateStars = useCallback((numberOfStars: number) => {//see the more than 1 star generation
     for(let i = 0; i < 5; i++){
       let newArray = stars;
@@ -70,6 +62,34 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
     loadPokemon();
   }, [loadPokemon]);
 
+  useEffect(()=>{
+    setPokeAmount(getAmount(pokemonId));    
+  },  [getAmount]);
+
+  useEffect(() => {
+    if(pokemon) {
+      if(amountCache < pokeAmount) {
+        changePokemonTotalPrice(pokemonId, pokemon.price);
+        setAmountCache(pokeAmount);
+      } else if(amountCache > pokeAmount) {
+        changePokemonTotalPrice( pokemonId, -(pokemon.price));
+        setAmountCache(pokeAmount);
+      }
+    }    
+  }, [pokeAmount, pokemon])
+
+  // const addAmountHandler = () => {
+  //   growPokemonAmount(pokemonId);
+  //   pokemon &&
+  //     changeTotalPriceHandler(pokemon.price);
+  // }
+
+  // const decreaseAmountHandler = () => {
+  //   decreasePokemonAmount(pokemonId);
+  //   pokemon &&
+  //     changeTotalPriceHandler(-(pokemon.price));
+  // }
+
   return (
     <Container>
         <TopInformation>
@@ -100,11 +120,11 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
         </TopInformation>
         <BottomMenu>
           <Switcher>
-            <button>
+            <button onClick={() => decreasePokemonAmount(pokemonId)}>
               <MinusIcon/>
             </button>
             <span>{pokeAmount.toString()}</span>
-            <button onClick={() => addPokemon(pokemonId)}>
+            <button onClick={() => growPokemonAmount(pokemonId)}>
               <PlusIcon/>
             </button>
           </Switcher>

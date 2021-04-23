@@ -18,7 +18,7 @@ import {
   } from './styles';
 
 const Header: React.FC = () => {
-  const { changeCartHandler } = useCart();
+  const { changeCartHandler, getNumberOfItems } = useCart();
   return (
     <Container>
       <TopHeader>
@@ -30,6 +30,11 @@ const Header: React.FC = () => {
         <MarketIcon />
         <FavoriteIcon />
         <MarketButton>
+          {getNumberOfItems() !== 0 && (
+            <div>
+              {getNumberOfItems() < 10 ? getNumberOfItems() : <span>9+</span>}
+            </div>
+          )}          
           <ShopBasket onClick={() => changeCartHandler()}/>
         </MarketButton>
       </TopHeader>
