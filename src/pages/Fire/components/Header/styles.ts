@@ -5,7 +5,9 @@ import {
   Storefront,
   FavoriteBorder,
   ShoppingBasket,
-  Search
+  Search,
+  ArrowToLeft,
+  UpArrowAlt,
 } from '../../../../styles/icons';
 
 export const Container = styled.header`
@@ -64,11 +66,11 @@ export const MarketButton = styled.button`
   align-items: center;
   justify-content: center;
   position: fixed;
+  top: 0.5rem;
+  right: 2rem;
   padding: 0.5rem;
   border-radius: 50%;
   background: var(--primary);
-  top: 0.5rem;
-  right: 2rem;
 
   cursor: pointer;
   transition: all 0.3s ease;
@@ -219,6 +221,53 @@ export const SearchButton = styled.button`
   }
 `;
 
+export const ReturnButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--medium-light-gray);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    filter: brightness(0.8);
+  }
+
+`;
+
+export const ToTopButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: -60px;
+  right: 10px;
+
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--medium-light-gray);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    filter: brightness(0.8);
+  }
+
+  &.outOfTop{
+    bottom: 10px;
+  }
+`;
+
 
 const iconCss = css`
   flex-shrink: 0;
@@ -247,6 +296,16 @@ export const BarsIcon = styled(Bars)`${iconCss}
 export const ProfileIcon = styled(PersonCircle)`${iconCss}`;
 export const MarketIcon = styled(Storefront)`${iconCss}`;
 export const FavoriteIcon = styled(FavoriteBorder)`${iconCss}`;
+export const ArrowLeftIcon = styled(ArrowToLeft)`${iconCss}
+  @media (min-width: 1366px) { 
+    margin-right: 0;
+  }
+`;
+export const ArrowUpIcon = styled(UpArrowAlt)`${iconCss}
+  @media (min-width: 1366px) { 
+    margin-right: 0;
+  }
+`;
 export const ShopBasket = styled(ShoppingBasket)`${iconCss}
   @media (min-width: 1366px) { 
     margin-right: 0;

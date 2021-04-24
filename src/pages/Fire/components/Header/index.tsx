@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../../../../context/CartContext';
 import { GlobalContext } from '../../../../context/GlobalContext';
 
@@ -15,14 +16,18 @@ import {
   MiddleBottomContainer,
   MiddleHeader,
   BottomHeader,
+  ReturnButton,
+  ToTopButton,
   SearchBox,
   SearchButton, 
   SearchIcon,
+  ArrowLeftIcon,
+  ArrowUpIcon,
   } from './styles';
 
 const Header: React.FC = () => {
   const { storeType, handleFilterValueChange } = useContext(GlobalContext);
-  const { changeCartHandler, getNumberOfItems } = useCart();
+  const { changeCartHandler, getNumberOfItems, backToTop } = useCart();
   
   const [cartClass, setCartClass] = useState('');
 
@@ -84,7 +89,16 @@ const Header: React.FC = () => {
             </SearchButton>
           </SearchBox>
         </BottomHeader>
-      </MiddleBottomContainer>      
+      </MiddleBottomContainer>  
+      <ReturnButton as={Link} to="/">
+        <ArrowLeftIcon />
+      </ReturnButton>   
+      <ToTopButton 
+        className={cartClass}
+        onClick={backToTop}
+      >
+        <ArrowUpIcon />
+      </ToTopButton>  
     </Container>
   );
 }

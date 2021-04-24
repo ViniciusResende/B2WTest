@@ -18,6 +18,7 @@ interface CartContextData {
   pokemonsIds: number[];
   totalPrice: number;
   changeCartHandler: () => void;
+  backToTop: () => void;
   finalizeModalIsInDisplayHandler: () => void;
   finalizePurchaseHanlder: () => void;
   restartShop: () => void;
@@ -130,15 +131,20 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       return newAmount;
     });
   }
+  
+  const backToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
   const changeCartHandler = () => {
     if(window.innerWidth < 1366){
       setCartIsInDisplay(prev => !prev);
     } else {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+      backToTop();
     }
   }
+
 
   const finalizeModalIsInDisplayHandler = () => {
     setFinalizeModalIsInDisplay(prev => !prev);
@@ -204,6 +210,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         pokemonsIds,
         totalPrice,
         changeCartHandler,
+        backToTop,
         finalizeModalIsInDisplayHandler,
         finalizePurchaseHanlder,
         restartShop,
