@@ -6,13 +6,14 @@ import {
   Content,
   PokeManiaButton,
   WaterIcon,
-  FireIcon
+  FireIcon,
+  LeafIcon
 } from './styles';
 
 import { GlobalContext } from '../../context/GlobalContext';
 
 const InitialScreen: React.FC = () => {
-  const { handleFireStoreClick, handleWaterStoreClick } = useContext(GlobalContext);
+  const { handleFireStoreClick, handleWaterStoreClick, handleGrassStoreClick } = useContext(GlobalContext);
 
   return (
     <Container>
@@ -35,6 +36,15 @@ const InitialScreen: React.FC = () => {
         >
           <FireIcon />
           FireMania
+        </PokeManiaButton>
+        <PokeManiaButton 
+          className="grass" 
+          as={Link} 
+          to="/grass"
+          onClick={() => handleGrassStoreClick()}
+        >
+          <LeafIcon />
+          LeafMania
         </PokeManiaButton>
       </Content>
     </Container>

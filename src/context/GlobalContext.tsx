@@ -9,6 +9,7 @@ interface GlobalContextData {
   filterValue: string;
   handleFireStoreClick: () => void;
   handleWaterStoreClick: () => void;
+  handleGrassStoreClick: () => void;
   handleFilterValueChange: (value: string) => void;
 }
 
@@ -27,6 +28,11 @@ export function GlobalProvider({ children }: GlobalProviderProps): JSX.Element{
     setStoreType('water');
     localStorage.setItem("@PokeMania:storeType", 'water');
   }
+
+  const handleGrassStoreClick = () => {
+    setStoreType('grass');
+    localStorage.setItem("@PokeMania:storeType", 'grass');
+  }
   
   const handleFilterValueChange = (value: string) => {
     setFilterValue(value);
@@ -39,6 +45,7 @@ export function GlobalProvider({ children }: GlobalProviderProps): JSX.Element{
         filterValue,
         handleFireStoreClick,
         handleWaterStoreClick,
+        handleGrassStoreClick,
         handleFilterValueChange
       }}
     >

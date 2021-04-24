@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-import { Water, Fire } from '../../styles/icons';
+import { Water, Fire, Leaf } from '../../styles/icons';
 
 export const Container = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background: rgb(51,161,242);
-  background: linear-gradient(45deg, rgba(51,161,242,1) 15%, rgba(255,38,0,1) 50%, rgba(51,161,242,1) 85%);
+  background: linear-gradient(45deg, rgba(51,161,242,1) 15%, rgba(255,38,0,1) 50%, rgba(0,156,0,1) 85%);
 `;
 
 export const Content = styled.div`
@@ -52,6 +52,9 @@ export const PokeManiaButton = styled.a`
   &.water {
     background: var(--water-hover);
   }
+  &.grass {
+    background: var(--grass-hover);
+  }
 
   &:hover{
     filter: brightness(0.8);
@@ -68,3 +71,4 @@ const IconsCss = css`
 
 export const WaterIcon = styled(Water)`${IconsCss}`;
 export const FireIcon = styled(Fire)`${IconsCss}`;
+export const LeafIcon = styled(Leaf)`${IconsCss}`

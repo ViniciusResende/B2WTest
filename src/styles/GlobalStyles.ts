@@ -41,6 +41,7 @@ export default createGlobalStyle`
     --water-hover: #2C8ED6;
     --fire: #ff2600;
     --fire-hover: #db2100;
+    --grass-hover: #009c00;
     --star: #fff200;
   }
 

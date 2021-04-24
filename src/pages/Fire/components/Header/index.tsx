@@ -51,12 +51,22 @@ const Header: React.FC = () => {
     handleFilterValueChange(e.target.value);
   }
 
+  const handleStoreName = () => {
+    if(storeType === 'fire'){
+      return 'FireMania';
+    } else if(storeType === 'water'){
+      return 'AquaMania';
+    } else if(storeType === 'grass'){
+      return 'LeafMania';
+    }
+  }
+
   return (
     <Container>
       <TopHeader>
         <BarsIcon />
         <Logo> 
-          {storeType === 'fire' ? 'FireMania' : 'AquaMania'}
+          {handleStoreName}
         </Logo>
         <ProfileIcon />
         <MarketIcon />

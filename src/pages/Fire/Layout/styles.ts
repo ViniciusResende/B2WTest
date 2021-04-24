@@ -7,7 +7,9 @@ export const Container = styled.div`
   &.fire{
     --primary: #ff2600;
   }
-
+  &.grass {
+    --primary: #009c00;
+  }
   > div div.cart{
     display: none;
   }
