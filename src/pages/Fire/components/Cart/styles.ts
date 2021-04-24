@@ -62,6 +62,8 @@ export const ConfirmationContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  margin-bottom: 1.5rem;
   > h3 {
     color: var(--dark-gray);
   }

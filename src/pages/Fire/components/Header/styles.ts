@@ -74,7 +74,8 @@ export const MarketButton = styled.button`
 
   cursor: pointer;
   transition: all 0.3s ease;
-  
+  z-index: 10;
+
   &.outOfTop{
     right: .2rem;
   }
@@ -236,6 +237,7 @@ export const ReturnButton = styled.button`
 
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 10;
 
   &:hover{
     filter: brightness(0.8);
@@ -258,6 +260,7 @@ export const ToTopButton = styled.button`
 
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 10;
 
   &:hover{
     filter: brightness(0.8);
