@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState, useEffect } from "react";
+import { GlobalContext } from "./GlobalContext";
 
 interface CartProviderProps {
   children: ReactNode;
@@ -32,8 +33,23 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
-  const [pokemonsIds, setPokemonsIds] = useState<number[]>([]);
-  const [pokemonsAmount, setPokemonsAmount] = useState<PokemonAmount[]>([])
+  const { storeType } = useContext(GlobalContext);
+  const [pokemonsIds, setPokemonsIds] = useState<number[]>(() => {
+    const storagedIds = localStorage.getItem(`@PokeMania:pokemonsIds${storeType}`);
+    if(storagedIds){
+      return JSON.parse(storagedIds);
+    }
+
+    return [];
+  });
+  const [pokemonsAmount, setPokemonsAmount] = useState<PokemonAmount[]>(() => {
+    const storagedAmount = localStorage.getItem(`@PokeMania:pokemonAmount${storeType}`);
+    if(storagedAmount){
+      return JSON.parse(storagedAmount);
+    }
+
+    return [];
+  })
   const [cartIsInDisplay, setCartIsInDisplay] = useState(false);
   const [finalizeModalIsInDisplay, setFinalizeModalIsInDisplay] = useState(false);
   const [acknowledgmentModalIsInDisplay, setAcknowledgmentModalIsInDisplay] = useState(false);
@@ -51,12 +67,20 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     if(!pokemonsIds.includes(pokemonId)){
       const newPokemonArr = [...pokemonsIds, pokemonId];
       setPokemonsIds(newPokemonArr);
+      localStorage.setItem(
+        `@PokeMania:pokemonsIds${storeType}`, 
+        JSON.stringify(newPokemonArr)
+      );
       const newPokemonAmount = [...pokemonsAmount, {
         pokemonId,
         amount: 1,
         pokemonPrice: 0,
       }];
       setPokemonsAmount(newPokemonAmount);
+      localStorage.setItem(
+        `@PokeMania:pokemonAmount${storeType}`, 
+        JSON.stringify(newPokemonAmount)
+      );
     } else {
       growPokemonAmount(pokemonId);
     }
@@ -64,23 +88,32 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const growPokemonAmount = (pokemonId: number) => {
     setPokemonsAmount( prev => {
-      return prev.map(item => (
+      const newAmount = prev.map(item => (
         item.pokemonId === pokemonId
           ?{...item, amount: item.amount + 1}
           : item
       ));
+      localStorage.setItem(
+        `@PokeMania:pokemonAmount${storeType}`, 
+        JSON.stringify(newAmount)
+      );
+      return newAmount;
     });
   }
 
   const decreasePokemonAmount =  (pokemonId: number) => {
-    setPokemonsAmount( prev => (
-      prev.reduce((ack, item) => {
+    setPokemonsAmount( prev => {
+      const newAmount = prev.reduce((ack, item) => {
         if(item.pokemonId === pokemonId){
           if(item.amount === 1) {
             setPokemonsIds( prev => {
               const newArr = prev.filter((pokeId) => (
                 pokeId !== pokemonId
               )) 
+              localStorage.setItem(
+                `@PokeMania:pokemonsIds${storeType}`, 
+                JSON.stringify(newArr)
+              );
               return newArr;
             })
             return ack
@@ -90,7 +123,12 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           return [...ack, item]
         }
       }, [] as PokemonAmount [])
-    ));
+      localStorage.setItem(
+        `@PokeMania:pokemonAmount${storeType}`, 
+        JSON.stringify(newAmount)
+      );
+      return newAmount;
+    });
   }
 
   const changeCartHandler = () => {
@@ -108,11 +146,16 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const changePokemonPrice = (pokemonId: number, value: number) => {
     setPokemonsAmount( prev => {
-      return prev.map(item => (
+      const newAmount = prev.map(item => (
         item.pokemonId === pokemonId
           ?{...item, pokemonPrice: value}
           : item
       ));
+      localStorage.setItem(
+        `@PokeMania:pokemonAmount${storeType}`, 
+        JSON.stringify(newAmount)
+      );
+      return newAmount;
     });
   }
 
@@ -141,9 +184,17 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const restartShop = () => {
     setAcknowledgmentModalIsInDisplay(false);
+    setPokemonsIds([]);
+    localStorage.setItem(
+      `@PokeMania:pokemonsIds${storeType}`, 
+      ''
+    );
+    setPokemonsAmount([]);
+    localStorage.setItem(
+      `@PokeMania:pokemonAmount${storeType}`, 
+      ''
+    );
   }
-
-    // console.log('pokemons Amout', pokemonsAmount);
   return (
     <CartContext.Provider
       value={{

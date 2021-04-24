@@ -7,7 +7,7 @@ interface GlobalProviderProps {
 
 
 interface GlobalContextData {
-  storeType: 'water' | 'fire' | undefined;
+  storeType: string | null;
   handleFireStoreClick: () => void;
   handleWaterStoreClick: () => void;
 }
@@ -15,14 +15,16 @@ interface GlobalContextData {
 export const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData);
 
 export function GlobalProvider({ children }: GlobalProviderProps): JSX.Element{
-  const [storeType, setStoreType] = useState<'water' | 'fire'>('water');
+  const [storeType, setStoreType] = useState<string | null>(localStorage.getItem("@PokeMania:storeType"));
 
   const handleFireStoreClick = () => {
     setStoreType('fire');
+    localStorage.setItem("@PokeMania:storeType", 'fire');
   }
 
   const handleWaterStoreClick = () => {
     setStoreType('water');
+    localStorage.setItem("@PokeMania:storeType", 'water');
   }
   
   return (
