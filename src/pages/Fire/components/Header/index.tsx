@@ -21,9 +21,9 @@ import {
   } from './styles';
 
 const Header: React.FC = () => {
-  const { storeType } = useContext(GlobalContext);
-
+  const { storeType, handleFilterValueChange } = useContext(GlobalContext);
   const { changeCartHandler, getNumberOfItems } = useCart();
+  
   const [cartClass, setCartClass] = useState('');
 
   const onScroll = useCallback(() => {
@@ -41,6 +41,10 @@ const Header: React.FC = () => {
       document.removeEventListener('scroll', onScroll);
     }
   }, [onScroll]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFilterValueChange(e.target.value);
+  }
 
   return (
     <Container>
@@ -70,7 +74,11 @@ const Header: React.FC = () => {
         </MiddleHeader>
         <BottomHeader>
           <SearchBox>
-            <input type="text" placeholder="Busque aqui seu Poke"/>
+            <input 
+              type="text" 
+              placeholder="Busque aqui seu Poke"
+              onChange={handleInputChange}
+            />
             <SearchButton>
               <SearchIcon />
             </SearchButton>

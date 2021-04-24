@@ -9,6 +9,7 @@ export const Container = styled.div`
   background: linear-gradient(148deg, var(--primary) 30%, rgba(0, 0, 0, 1) 100%);
   border: 1px solid var(--outline);
   border-radius: 10px;
+  max-width: 32.8125rem;
 `;
 
 export const Head = styled.div`

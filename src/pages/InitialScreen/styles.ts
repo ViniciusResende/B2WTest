@@ -6,8 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgb(51,161,242);
   background: linear-gradient(45deg, rgba(51,161,242,1) 15%, rgba(255,38,0,1) 50%, rgba(51,161,242,1) 85%);
 `;
