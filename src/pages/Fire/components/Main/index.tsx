@@ -30,7 +30,6 @@ const Main: React.FC = () => {
     const amount = 2; //turn it in a variable to fit better by the resolution
     if(!filterValue){
       const index = visiblePokemon.length;
-      console.log('visible Pokemon', index);
       setVisiblePokemon(
         visiblePokemon.concat(
           pokemon.slice(index, index + amount)
@@ -79,7 +78,23 @@ const Main: React.FC = () => {
       amountLoaded={visiblePokemon.length} 
       loadMoreHandler={loadMoreHandler}
     >
-      <Container>
+      <Container
+        variants={{
+          hidden: {
+            opacity: 1, scale: 0
+          },
+          visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+              delayChildren: 0.3,
+              staggerChildren: 0.2
+            }
+          }
+        }}
+        initial="hidden"
+        animate="visible"
+      >
         {visiblePokemon && visiblePokemon.map((pokemonName) => {
           return <PokeCard key={pokemonName} name={pokemonName}/>
         })}

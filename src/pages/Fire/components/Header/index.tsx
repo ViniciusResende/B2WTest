@@ -30,6 +30,16 @@ const Header: React.FC = () => {
   const { changeCartHandler, getNumberOfItems, backToTop } = useCart();
   
   const [cartClass, setCartClass] = useState('');
+  const [storeTitle, setStoreTitle] = useState(() => {
+    if(storeType === 'fire'){
+      return 'FireMania';
+    } else if(storeType === 'water'){
+      return 'AquaMania';
+    } else if(storeType === 'grass'){
+      return 'LeafMania';
+    }
+  });
+
 
   const onScroll = useCallback(() => {
     if(window.scrollY > 95){
@@ -51,22 +61,12 @@ const Header: React.FC = () => {
     handleFilterValueChange(e.target.value);
   }
 
-  const handleStoreName = () => {
-    if(storeType === 'fire'){
-      return 'FireMania';
-    } else if(storeType === 'water'){
-      return 'AquaMania';
-    } else if(storeType === 'grass'){
-      return 'LeafMania';
-    }
-  }
-
   return (
     <Container>
       <TopHeader>
         <BarsIcon />
         <Logo> 
-          {handleStoreName}
+          {storeTitle}
         </Logo>
         <ProfileIcon />
         <MarketIcon />

@@ -21,7 +21,24 @@ interface CartProps {
 const Cart: React.FC<CartProps> = (props) => {
   const { changeCartHandler, pokemonsIds, totalPrice, finalizeModalIsInDisplayHandler } = useCart();
   return (
-    <Container className={props?.cartClass}>
+    <Container 
+      className={props?.cartClass}
+      variants={{
+        hidden: {
+          opacity: 1, scale: 0
+        },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+          }
+        }
+      }}
+      initial="hidden"
+      animate="visible"
+    >
       <StickyBox>
         <Header>
           <h2>Minha cesta</h2>

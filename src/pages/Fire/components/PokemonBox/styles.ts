@@ -4,8 +4,9 @@ import {
   Minus, 
   Plus, 
 } from '../../../../styles/icons';
+import { motion } from 'framer-motion';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 0.5rem;

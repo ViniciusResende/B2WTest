@@ -74,7 +74,19 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
   }
 
   return (
-    	<Container className="poke-card">
+    	<Container 
+        className="poke-card"
+        variants={{
+          hidden: {
+            y: 20,
+            opacity: 0
+          },
+          visible: {
+            y: 0,
+            opacity: 1
+          }
+        }}
+      >
         <Head>
           <h2>{pokemon ? pokemon.name : 'Loading...'}</h2>
           <Dot />

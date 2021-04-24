@@ -85,7 +85,18 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
   // }
 
   return (
-    <Container>
+    <Container
+      variants={{
+        hidden: {
+          y: 20,
+          opacity: 0
+        },
+        visible: {
+          y: 0,
+          opacity: 1
+        }
+      }}
+    >
         <TopInformation>
           {pokemon ? <img src={pokemon.picture || defaultPokemon} alt={pokemon.name}/> : <img src={defaultPokemon} alt='Default Pokemon'/>}
           <SideInformation>
