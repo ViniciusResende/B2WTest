@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useCart } from '../../../../context/CartContext';
+import { GlobalContext } from '../../../../context/GlobalContext';
 
 import { 
   Container,
@@ -20,6 +21,8 @@ import {
   } from './styles';
 
 const Header: React.FC = () => {
+  const { storeType } = useContext(GlobalContext);
+
   const { changeCartHandler, getNumberOfItems } = useCart();
   const [cartClass, setCartClass] = useState('');
 
@@ -44,7 +47,7 @@ const Header: React.FC = () => {
       <TopHeader>
         <BarsIcon />
         <Logo> 
-          FireMania
+          {storeType === 'fire' ? 'FireMania' : 'AquaMania'}
         </Logo>
         <ProfileIcon />
         <MarketIcon />

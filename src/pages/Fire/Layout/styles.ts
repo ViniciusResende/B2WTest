@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  &.water{
+    --primary: #33A1F2;
+  }
+  &.fire{
+    --primary: #ff2600;
+  }
+
   > div div.cart{
     display: none;
   }

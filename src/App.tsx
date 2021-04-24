@@ -1,15 +1,24 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import GlobalStyles from './styles/GlobalStyles';
+import { GlobalProvider } from './context/GlobalContext';
 
+import InitialScreen from './pages/InitialScreen';
 import FireLayout from './pages/Fire/FireLayout';
+import WaterLayout from './pages/Fire/WaterLayout';
 
 function App() {
   return (
     <>
-      <FireLayout />
-      
-      <GlobalStyles />
+    <GlobalProvider>
+      <BrowserRouter>
+        <Route path="/" exact component={InitialScreen} />
+        <Route path="/fire" exact component={FireLayout} />
+        <Route path="/water" exact component={WaterLayout} />
+        <GlobalStyles />
+      </BrowserRouter>
+    </GlobalProvider>
     </>
   );
 }

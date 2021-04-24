@@ -4,10 +4,10 @@ import React from 'react';
 
 import Layout from '../Layout';
 
-const FireLayout: React.FC = () => {
+const WaterLayout: React.FC = () => {
   return (
-    <Layout class="fire"/>
+    <Layout class="water"/>
   );
 }
 
-export default FireLayout;
+export default WaterLayout;

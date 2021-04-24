@@ -38,9 +38,12 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = (props: InfiniteScrollProp
 
   useEffect(() => {
     document.addEventListener('scroll', onScroll);
+    document.addEventListener('resize', onScroll);
+    //TODO: fix that when resizing the website doesnt load more pokemons
   
     return function cleanup() {
       document.removeEventListener('scroll', onScroll);
+      document.removeEventListener('resize', onScroll);
     }
   }, [onScroll]);
 

@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  background: linear-gradient(148deg, rgba(255, 38, 0, 1) 30%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(148deg, var(--primary) 30%, rgba(0, 0, 0, 1) 100%);
   border: 1px solid var(--outline);
   border-radius: 10px;
 `;

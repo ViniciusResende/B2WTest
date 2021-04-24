@@ -7,7 +7,7 @@ interface CartProviderProps {
 interface PokemonAmount {
   pokemonId: number;
   amount: number;
-  totalPokemonPrice: number;
+  pokemonPrice: number;
 }
 
 interface CartContextData {
@@ -23,7 +23,7 @@ interface CartContextData {
   addPokemon: (pokemonId: number) => void;
   growPokemonAmount: (pokemonId: number) => void;
   decreasePokemonAmount: (pokemonId: number) => void;
-  changePokemonTotalPrice: (pokemonId: number, value: number) => void;
+  changePokemonPrice: (pokemonId: number, value: number) => void;
   getAmount: (pokemonId: number) => number;
   getNumberOfItems: () => number;
   // updatePokemonAmount: ({ pokemonId, amount }: UpdatePokemonAmount) => void;
@@ -42,7 +42,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   useEffect(() => {
     let accumulator = 0;
     pokemonsAmount.map((pokemon) => {
-      accumulator = accumulator + pokemon.totalPokemonPrice;
+      accumulator = accumulator + (pokemon.pokemonPrice * pokemon.amount);
     })
     setTotalPrice(accumulator);
   }, [pokemonsAmount])
@@ -54,7 +54,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       const newPokemonAmount = [...pokemonsAmount, {
         pokemonId,
         amount: 1,
-        totalPokemonPrice: 0,
+        pokemonPrice: 0,
       }];
       setPokemonsAmount(newPokemonAmount);
     } else {
@@ -106,11 +106,11 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     setFinalizeModalIsInDisplay(prev => !prev);
   }
 
-  const changePokemonTotalPrice = (pokemonId: number, value: number) => {
+  const changePokemonPrice = (pokemonId: number, value: number) => {
     setPokemonsAmount( prev => {
       return prev.map(item => (
         item.pokemonId === pokemonId
-          ?{...item, totalPokemonPrice: item.totalPokemonPrice + value}
+          ?{...item, pokemonPrice: value}
           : item
       ));
     });
@@ -143,6 +143,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     setAcknowledgmentModalIsInDisplay(false);
   }
 
+    // console.log('pokemons Amout', pokemonsAmount);
   return (
     <CartContext.Provider
       value={{
@@ -158,7 +159,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         addPokemon,
         growPokemonAmount,
         decreasePokemonAmount,
-        changePokemonTotalPrice,
+        changePokemonPrice,
         getAmount,
         getNumberOfItems
       }}

@@ -22,7 +22,7 @@ interface PokemonBoxProps {
   pokemonId: number;
 }
 const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) => {
-  const { getAmount, growPokemonAmount , decreasePokemonAmount, changePokemonTotalPrice } = useCart();
+  const { getAmount, growPokemonAmount , decreasePokemonAmount, changePokemonPrice } = useCart();
 
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [stars, setStars] = useState<string[]>([]);
@@ -68,15 +68,9 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
 
   useEffect(() => {
     if(pokemon) {
-      if(amountCache < pokeAmount) {
-        changePokemonTotalPrice(pokemonId, pokemon.price);
-        setAmountCache(pokeAmount);
-      } else if(amountCache > pokeAmount) {
-        changePokemonTotalPrice( pokemonId, -(pokemon.price));
-        setAmountCache(pokeAmount);
-      }
+      changePokemonPrice(pokemonId, pokemon.price);
     }    
-  }, [pokeAmount, pokemon])
+  }, [pokemon]);
 
   // const addAmountHandler = () => {
   //   growPokemonAmount(pokemonId);

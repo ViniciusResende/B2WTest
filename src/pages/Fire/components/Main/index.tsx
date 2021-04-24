@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Container } from './styles';
 
@@ -8,6 +8,7 @@ import PokeCard from '../PokeCard';
 import { api } from '../../../../api/api';
 import Cart from '../Cart';
 import { useCart } from '../../../../context/CartContext';
+import { GlobalContext } from '../../../../context/GlobalContext';
 
 interface PokemonData {
   pokemon: {
@@ -18,13 +19,14 @@ interface PokemonData {
 
 const Main: React.FC = () => {
   const { pokemonsIds } = useCart();
+  const { storeType } = useContext(GlobalContext);
 
   const [pokemon, setPokemon] = useState<string[]>([]);
   const [visiblePokemon, setVisiblePokemon] = useState<string[]>([]);
 
   async function retrievePokemon() {
     // TODO: get /type/fire URI by parameter
-    const { data } = await api.get('/type/fire');
+    const { data } = await api.get(`/type/${storeType}`);
     setPokemon(data.pokemon.map((pokemonData: PokemonData) => pokemonData.pokemon.name));
   };
 

@@ -108,15 +108,15 @@ export const ConfirmButton = styled.button`
   justify-content: center;
   margin: 0.5rem 0;
 
-  background: var(--fire);
+  background: var(--primary);
   padding: 0.6rem;
   border-radius: 4px;
   
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 
   &:hover:not(:disabled){
-    background: var(--fire-hover)
+    filter: brightness(0.8);
   }
 
   &:disabled{

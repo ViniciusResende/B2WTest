@@ -12,7 +12,7 @@ export const Container = styled.header`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: var(--fire);
+  background: var(--primary);
 
   padding: 1rem 2rem;
 
@@ -66,7 +66,7 @@ export const MarketButton = styled.button`
   position: fixed;
   padding: 0.5rem;
   border-radius: 50%;
-  background: var(--fire);
+  background: var(--primary);
   top: 0.5rem;
   right: 2rem;
 
