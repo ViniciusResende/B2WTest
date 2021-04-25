@@ -11,7 +11,7 @@ import {
   PriceContainer 
 } from './styles';
 
-import { api } from '../../../../api/api';
+import { api } from '../../../../services/api/api';
 import defaultPokemon from '../../../../assets/emptyPokemon.png';
 import { useCart } from '../../../../context/CartContext';
 
@@ -79,7 +79,7 @@ const PokeCard: React.FC<PokeCardProps> = (props: PokeCardProps) => {
         variants={{
           hidden: {
             y: 20,
-            opacity: 0
+            opacity: 0.5
           },
           visible: {
             y: 0,

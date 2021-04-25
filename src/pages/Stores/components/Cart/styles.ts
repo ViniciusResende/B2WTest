@@ -50,11 +50,6 @@ export const PriceContainer = styled.div`
 export const ConfirmationArea = styled.div`
   padding: 0.5rem;
   background: var(--light-gray);
-  
-  /* @media (min-width: 1366px){
-    position: sticky;
-  } */
-  //TODO: Try to make the confirmation area sticky
 `;
 export const ConfirmationContent = styled.div`
   border-top: 1px solid var(--medium-light-gray);
@@ -83,6 +78,9 @@ export const ConfirmationContent = styled.div`
     font-size: 0.65rem;
     text-align: center;
     margin-bottom: 0.25rem;
+    @media (min-width: 1366px){
+      display: none;
+    }
   }
 
   @media (min-width: 768px) {
@@ -145,5 +143,9 @@ export const CloseIcon = styled(Close)`
   margin-right: 5px;  
   > path {
     color: var(--medium-light-gray);
+  }
+
+  @media (min-width: 1366px){
+    display: none;
   }
 `;

@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import { Container } from './styles';
-
 import Layout from '../Layout';
 
 const FireLayout: React.FC = () => {

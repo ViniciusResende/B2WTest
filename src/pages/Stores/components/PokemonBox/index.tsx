@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 import defaultPokemon from '../../../../assets/emptyPokemon.png';
-import { api } from '../../../../api/api';
+import { api } from '../../../../services/api/api';
 import { Pokemon } from '../PokeCard';
 import { useCart } from '../../../../context/CartContext';
 
@@ -28,7 +28,7 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
   const [stars, setStars] = useState<string[]>([]);
   const [pokeAmount, setPokeAmount] = useState(getAmount(pokemonId));
   const [amountCache, setAmountCache] = useState(0);
-  const generateStars = useCallback((numberOfStars: number) => {//see the more than 1 star generation
+  const generateStars = useCallback((numberOfStars: number) => {
     for(let i = 0; i < 5; i++){
       let newArray = stars;
       if(i < numberOfStars){
@@ -71,18 +71,6 @@ const PokemonBox: React.FC<PokemonBoxProps> = ({ pokemonId }: PokemonBoxProps) =
       changePokemonPrice(pokemonId, pokemon.price);
     }    
   }, [pokemon]);
-
-  // const addAmountHandler = () => {
-  //   growPokemonAmount(pokemonId);
-  //   pokemon &&
-  //     changeTotalPriceHandler(pokemon.price);
-  // }
-
-  // const decreaseAmountHandler = () => {
-  //   decreasePokemonAmount(pokemonId);
-  //   pokemon &&
-  //     changeTotalPriceHandler(-(pokemon.price));
-  // }
 
   return (
     <Container

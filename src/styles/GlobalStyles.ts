@@ -37,9 +37,7 @@ export default createGlobalStyle`
     --medium-gray: #202327;
     --white: #fff;
     --outline: #2F3336;
-    --water: #33A1F2;
     --water-hover: #2C8ED6;
-    --fire: #ff2600;
     --fire-hover: #db2100;
     --grass-hover: #009c00;
     --star: #fff200;

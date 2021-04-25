@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Container, CenteredContent } from './styles';
 
 import Header from '../components/Header';

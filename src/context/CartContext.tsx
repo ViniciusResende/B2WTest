@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState, useEffect } from "react";
+
 import { GlobalContext } from "./GlobalContext";
 
 interface CartProviderProps {
@@ -28,7 +29,6 @@ interface CartContextData {
   changePokemonPrice: (pokemonId: number, value: number) => void;
   getAmount: (pokemonId: number) => number;
   getNumberOfItems: () => number;
-  // updatePokemonAmount: ({ pokemonId, amount }: UpdatePokemonAmount) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);

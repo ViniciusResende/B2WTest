@@ -18,7 +18,6 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = (props) => {
   return (
     <Container> 
-      {/* implement click away close */}
       <ModalContent>
         <Head>
           <h2>{props.title}</h2>

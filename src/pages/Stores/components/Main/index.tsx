@@ -5,7 +5,7 @@ import { Container } from './styles';
 import InfiniteScroll from '../InfiniteScroll';
 import PokeCard from '../PokeCard';
 
-import { api } from '../../../../api/api';
+import { api } from '../../../../services/api/api';
 import { GlobalContext } from '../../../../context/GlobalContext';
 
 interface PokemonData {
@@ -27,7 +27,7 @@ const Main: React.FC = () => {
   };
 
   const loadMorePokemon = () => {
-    const amount = 2; //turn it in a variable to fit better by the resolution
+    const amount = window.innerWidth < 1366 ? 2 : 4;
     if(!filterValue){
       const index = visiblePokemon.length;
       setVisiblePokemon(
@@ -87,8 +87,8 @@ const Main: React.FC = () => {
             opacity: 1,
             scale: 1,
             transition: {
-              delayChildren: 0.3,
-              staggerChildren: 0.2
+              delayChildren: 0.7,
+              staggerChildren: 0.7
             }
           }
         }}
@@ -100,7 +100,6 @@ const Main: React.FC = () => {
         })}
       </Container>
     </InfiniteScroll>
-    // <Cart />
   );
 }
 

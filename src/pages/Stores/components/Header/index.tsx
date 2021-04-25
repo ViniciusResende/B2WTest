@@ -26,7 +26,7 @@ import {
   } from './styles';
 
 const Header: React.FC = () => {
-  const { storeType, handleFilterValueChange } = useContext(GlobalContext);
+  const { storeType, handleFilterValueChange, clearFilter } = useContext(GlobalContext);
   const { changeCartHandler, getNumberOfItems, backToTop } = useCart();
   
   const [cartClass, setCartClass] = useState('');
@@ -100,7 +100,11 @@ const Header: React.FC = () => {
           </SearchBox>
         </BottomHeader>
       </MiddleBottomContainer>  
-      <ReturnButton as={Link} to="/">
+      <ReturnButton 
+        as={Link} 
+        to="/"
+        onClick={() => clearFilter()}
+      >
         <ArrowLeftIcon />
       </ReturnButton>   
       <ToTopButton 

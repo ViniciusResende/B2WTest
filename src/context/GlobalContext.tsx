@@ -5,12 +5,13 @@ interface GlobalProviderProps {
 }
 
 interface GlobalContextData {
-  storeType: string | null; //TODO: Try to improve this typing
+  storeType: string | null;
   filterValue: string;
   handleFireStoreClick: () => void;
   handleWaterStoreClick: () => void;
   handleGrassStoreClick: () => void;
   handleFilterValueChange: (value: string) => void;
+  clearFilter: () => void;
 }
 
 export const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData);
@@ -38,6 +39,10 @@ export function GlobalProvider({ children }: GlobalProviderProps): JSX.Element{
     setFilterValue(value);
   }
 
+  const clearFilter = () => {
+    setFilterValue('');
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -46,7 +51,8 @@ export function GlobalProvider({ children }: GlobalProviderProps): JSX.Element{
         handleFireStoreClick,
         handleWaterStoreClick,
         handleGrassStoreClick,
-        handleFilterValueChange
+        handleFilterValueChange,
+        clearFilter
       }}
     >
       {children}
