@@ -58,6 +58,7 @@ P.s: Gostaria de fazer um adendo pedindo uma licença poética para o meu códig
 ### :notebook_with_decorative_cover: Tablet Layout:
 
 #### :shopping_cart: Lojas
+<<<<<<< HEAD
 
   <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439515/PokeMania/LojasPokeManiaTablet_wmmsq9.gif">
   
@@ -68,6 +69,16 @@ P.s: Gostaria de fazer um adendo pedindo uma licença poética para o meu códig
 
 #### :shopping_cart: Lojas
 
+=======
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439515/PokeMania/LojasPokeManiaTablet_wmmsq9.gif">
+  
+#### :gear: Funcionalidades
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439578/PokeMania/FuncionalidadesPokeManiaTablet_zeigot.gif">
+
+### :iphone: Mobile Layout:
+
+#### :shopping_cart: Lojas
+>>>>>>> 1baeb4184b1c2bfbb8a03b58a2ee7e1a220410a0
   <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439038/PokeMania/LojasPokeManiaMobile_ecsmtn.gif">
   
 #### :gear: Funcionalidades
@@ -120,12 +131,20 @@ $ yarn start
 
 ---
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 1baeb4184b1c2bfbb8a03b58a2ee7e1a220410a0
 ## :man_technologist: Tecnologias Utilizadas:
 
 As ferramentas a seguir foram utilizadas no desenvolvimento da aplicação:
 
 ### **Frontend** ([ReactJs](https://reactjs.org/) + [styled-components](https://styled-components.com/) + [TypeScript](https://www.typescriptlang.org/))
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1baeb4184b1c2bfbb8a03b58a2ee7e1a220410a0
 - **[axios](https://www.npmjs.com/package/axios)**
 - **[framer-motion](https://www.framer.com/motion/)**
 - **[react-router-dom](https://www.npmjs.com/package/react-router-dom)**
