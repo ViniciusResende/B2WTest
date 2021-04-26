@@ -22,7 +22,7 @@
 
 ## :bulb: Sobre o Projeto:
 
-:shopping_cart: PokeMania - É um website onde pode-se acessar as lojas FireMania, AquaMania e LeafMania, nessas lojas é disposta uma variedade de pokemon do tipo Fogo, Água e Grama respectivamente, esses podemon podem ser ficticiamente adicionados a um carrinho e comprados.
+:shopping_cart: PokeMania - É um website onde pode-se acessar as lojas FireMania, AquaMania e LeafMania, nessas lojas é disposta uma variedade de pokemon do tipo Fogo, Água e Grama respectivamente, esses pokemon podem ser ficticiamente adicionados a um carrinho e comprados.
 
 :briefcase: O projeto foi desenvolvido com o intuíto principal de ser o teste prático para a vaga de Desenvolvedor Fronted Junior da B2W.
 
