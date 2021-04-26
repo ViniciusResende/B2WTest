@@ -11,6 +11,7 @@ export const Container = styled(motion.div)`
   border: 1px solid var(--outline);
   border-radius: 10px;
   max-width: 32.8125rem;
+  max-height: 350px;
 `;
 
 export const Head = styled.div`
