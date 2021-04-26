@@ -10,11 +10,11 @@
 </h4>
 
 <p align="center">
-  <a href="#bulb-about-the-project">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#art-layout-of-the-application">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-launching-the-project">Iniciando o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#man_technologist-used-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#raising_hand_man-author">Autor</a> 
+  <a href="#bulb-sobre-o-projeto">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#art-layout-da-aplicação">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-iniciando-o-projeto">Iniciando o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#man_technologist-tecnologias-utilizadas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#raising_hand_man-autor">Autor</a> 
 </p>
 
 </br>
@@ -39,13 +39,37 @@ P.s: Gostaria de fazer um adendo pedindo uma licença poética para o meu códig
 
 ### :desktop_computer: Desktop Layout:
 
- <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1617890611/Portfolio/Vin%C3%ADcius_Alves_-_site_desktop_bwakae.gif">
- <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1617889892/Portfolio/Vin%C3%ADcius_Alves_-_contact_desktop_jtgmbp.gif">
+#### :ocean: AquaMania
+
+ <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619438106/PokeMania/AquaManiaDesktop_mnpynp.gif">
+ 
+#### :fire: FireMania
+
+ <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619438357/PokeMania/FireManiaDesktop_ycwkv9.gif">
+ 
+ #### :leaves: LeafMania
+ 
+ <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619438433/PokeMania/LeafManiaDesktop_oyjd8f.gif">
+ 
+ #### :gear: Funcionalidades Gerais
+
+ <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619438906/PokeMania/DesktopFunc_orfvvt.gif">
+ 
+### :notebook_with_decorative_cover: Tablet Layout:
+
+#### :shopping_cart: Lojas
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439515/PokeMania/LojasPokeManiaTablet_wmmsq9.gif">
+  
+#### :gear: Funcionalidades
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439578/PokeMania/FuncionalidadesPokeManiaTablet_zeigot.gif">
 
 ### :iphone: Mobile Layout:
 
-  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1617890730/Portfolio/Vin%C3%ADcius_Alves_-_site_mobile_zshi8q.gif">
-  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1617890849/Portfolio/Vin%C3%ADcius_Alves_-_contact_mobile_tifn8i.gif">
+#### :shopping_cart: Lojas
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439038/PokeMania/LojasPokeManiaMobile_ecsmtn.gif">
+  
+#### :gear: Funcionalidades
+  <img alt="" src="https://res.cloudinary.com/viniciusalvesdefaria/image/upload/v1619439300/PokeMania/FuncionalidadesPokeManiaMobile_cupjd2.gif">
   
 </br>
 </br>
