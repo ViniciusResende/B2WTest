@@ -1,7 +1,7 @@
 <h1 align="center">
   <img alt="PokeMania-logo" src="https://www.flaticon.com/svg/vstatic/svg/361/361998.svg?token=exp=1619387583~hmac=747b11c9e9b7577e3baa2f3912c06f44" width="150px" />
 </h1>
- <h3 align="center">O repositório está em produção, e pode ser acessado pelo link: https://pokemania-viniciusresende.vercel.app/</h3>
+ <h3 align="center">O repositório está em produção, e pode ser acessado pelo link: https://pokemania.vercel.app/</h3>
 
 <p align= "center">:bug: PokeMania - É um website onde você pode achar uma variedade de pokemon para comprar :bug:</p>
 
